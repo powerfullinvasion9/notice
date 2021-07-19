@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block board %}
+<form method="post">
+
+    <div class="mb-3">
+        {% csrf_token %}
+        {{ form.title }}
+        {{ form.text }}
+        {{ form.importance }}
+    </div>
+
+    <input type="submit" class="btn btn-primary">
+</form>
+{% endblock %}

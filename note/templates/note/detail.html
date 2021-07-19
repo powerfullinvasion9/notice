@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block board %}
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">{{ object.title }}</h3>
+    <p class="card-text">{{ object.text}}</p>
+    <p class="card-text">{{ object.created_at}}</p>
+    {% if object.importance == "v" %}
+    <a class="btn btn-danger">Very important</a>
+    {% endif %}
+    {% if object.importance == "i" %}
+    <a class="btn btn-warning">Important</a>
+    {% endif %}
+    {% if object.importance == "n" %}
+    <a class="btn btn-success">Not important</a>
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}

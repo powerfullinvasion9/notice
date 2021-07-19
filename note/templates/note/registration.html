@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block board %}
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        {{ form.username.label }}
+        {{ form.username }}
+        <br>
+        {{ form.first_name.label }}
+        {{ form.first_name }}
+        <br>
+        {{ form.last_name.label }}
+        {{ form.last_name }}
+        <br>
+        {{ form.password1.label }}
+        {{ form.password1 }}
+        <br>
+        {{ form.password2.label }}
+        {{ form.password2 }}
+    </div>
+    {{ form.errors }}
+    <input type="submit">
+
+</form>
+{% endblock %}

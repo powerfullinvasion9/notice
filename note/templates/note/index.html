@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block board %}
+{% for note in object_list %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body" class="this-card">
+        <h5 class="card-title">{{ note.title }}</h5>
+        <p class="card-text">{{ note.text }}</p>
+        <p class="card-text">created: {{ note.created_at| date:'y.m.d' }}</p>
+        {% if note.importance == "v" %}
+        <a href="{{ note.get_absolute_url }}" class="btn btn-danger">See more</a>
+        {% endif %}
+        {% if note.importance == "i" %}
+        <a href="{{ note.get_absolute_url }}" class="btn btn-warning">See more</a>
+        {% endif %}
+        {% if note.importance == "n" %}
+        <a href="{{ note.get_absolute_url }}" class="btn btn-success">See more</a>
+        {% endif %}
+
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
